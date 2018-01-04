@@ -1,2 +1,2 @@
 # nexus-checker
-Checks, or does authorization,
+Checks, or does authentication.
