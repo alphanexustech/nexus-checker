@@ -13,7 +13,7 @@ router.get('/verify', function(req, res, next) {
     console.log(err);
     return res.sendStatus(401);
   }
-  if (!decoded || decoded['authenticationSource'] != 'N-Checker') {
+  if (!decoded || decoded['iss'] != 'N-Checker') {
     return res.sendStatus(401);
   } else {
     return res.send(decoded)
@@ -24,7 +24,7 @@ router.get('/verify', function(req, res, next) {
 /* POST User data to create JWT Token. */
 router.post('/sign', function(req, res, next) {
   var payload = req.body;
-  payload['authenticationSource'] = 'N-Checker'
+  payload['iss'] = 'N-Checker'
   // Token with 1 hour expiration
   var token = jwt.sign(payload, secrets.sessionSecret, { expiresIn: '1h' });
   res.send(token);
