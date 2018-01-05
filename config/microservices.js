@@ -4,7 +4,7 @@
 
 module.exports = {
 
-  interceptorServer: '0.0.0.0',
+  interceptorServer: '127.0.0.1',
   interceptorPort: '5000'
 
 }
